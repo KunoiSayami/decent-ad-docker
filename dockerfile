@@ -38,20 +38,6 @@ RUN rustup install stable
 
 RUN cargo install --git https://github.com/iden3/circom.git
 
-RUN git clone --recursive https://github.com/EtaoinWu/DecentAd.git /home/build/decent
-
 RUN echo 'export PATH=$HOME/.cargo/bin:$PATH' > /home/build/.bashrc
 
 RUN echo 'source /usr/share/nvm/init-nvm.sh' >> /home/build/.bashrc
-
-COPY build.sh /home/build/
-
-RUN /home/build/build.sh
-
-RUN /home/build/build.sh test
-
-ENTRYPOINT ["bash"]
-# ENTRYPOINT ["bash", "-c", "/home/build/repos/utils/pkgbuild_bootstap"]
-
-#ENTRYPOINT ["bash"]
-

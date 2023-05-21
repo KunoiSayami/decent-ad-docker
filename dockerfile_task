@@ -1,0 +1,13 @@
+FROM decentad_base:latest
+
+RUN git clone --recursive https://github.com/EtaoinWu/DecentAd.git /home/build/decent
+
+RUN sudo pacman --noconfirm --needed -S time
+
+COPY build.sh /home/build/
+
+RUN /home/build/build.sh
+
+RUN /home/build/build.sh test
+
+ENTRYPOINT ["bash"]
